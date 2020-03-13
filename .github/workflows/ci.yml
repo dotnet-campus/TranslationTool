@@ -25,12 +25,12 @@ jobs:
     runs-on: windows-latest
 
     env:
-      SigningCertificate: GitHubActionsDemo.pfx
-      Solution_Path: MyWpfApp.sln
-      Test_Project_Path: MyWpfApp.Tests\MyWpfApp.Tests.csproj
-      Wpf_Project_Path: MyWpfApp\MyWpfApp.csproj
-      Wap_Project_Directory: MyWpfApp.Package
-      Wap_Project_Name: MyWpfApp.Package.wapproj
+      SigningCertificate: TranslationTool.Package_TemporaryKey.pfx
+      Solution_Path: TranslationTool.sln
+      Test_Project_Path: Code\TranslationTool.Tests\TranslationTool.Tests.csproj
+      Wpf_Project_Path: Code\TranslationTool.WPF\TranslationTool.WPF.csproj
+      Wap_Project_Directory: Code\TranslationTool.Package
+      Wap_Project_Name: TranslationTool.Package.wapproj
 
     steps:
     - name: Checkout
@@ -73,12 +73,12 @@ jobs:
         RuntimeIdentifier: win-${{ matrix.targetplatform }}
 
     # Decode the Base64 encoded Pfx
-    - name: Decode the Pfx
-      run: |
-        $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-        $currentDirectory = Get-Location
-        $certificatePath = Join-Path -Path $currentDirectory -ChildPath $env:Wap_Project_Directory -AdditionalChildPath $env:SigningCertificate
-        [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
+    # - name: Decode the Pfx
+    #   run: |
+    #     $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
+    #     $currentDirectory = Get-Location
+    #     $certificatePath = Join-Path -Path $currentDirectory -ChildPath $env:Wap_Project_Directory -AdditionalChildPath $env:SigningCertificate
+    #     [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
 
     # Build the Windows Application Packaging project
     - name: Build the Windows Application Packaging Project (wapproj)
