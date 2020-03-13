@@ -55,9 +55,32 @@
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>3FAB36F55CDD6C7C25E38AE9E4CF804DB16E4046</PackageCertificateThumbprint>
-    <PackageCertificateKeyFile>TranslationTool.Package_TemporaryKey.pfx</PackageCertificateKeyFile>
+      <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+      <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+      <AppInstallerUri>https://microsoft.github.io/github-actions-for-desktop-apps-distribution-local</AppInstallerUri>
+      <GenerateTestArtifacts>True</GenerateTestArtifacts>
+      <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+
+      <PackageCertificateThumbprint>075ED609599597988B415B3D597F529311CB5EA7</PackageCertificateThumbprint>
     <EntryPointProjectUniqueName>..\TranslationTool.WPF\TranslationTool.WPF.csproj</EntryPointProjectUniqueName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+      <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+      <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
