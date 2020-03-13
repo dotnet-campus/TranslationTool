@@ -84,6 +84,11 @@
   <ItemGroup>
     <ProjectReference Include="..\TranslationTool.WPF\TranslationTool.WPF.csproj">
       <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
+      <TrustLevel>Full</TrustLevel>
+      <PublishProfile Condition="'$(Configuration)|$(Platform)'=='Release|x86'">Properties\PublishProfiles\SelfContainedWin86.pubxml</PublishProfile>
+      <PublishProfile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Properties\PublishProfiles\SelfContainedWin64.pubxml</PublishProfile>
+      <PublishProfile Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">Properties\PublishProfiles\SelfContainedWin86Debug.pubxml</PublishProfile>
+      <PublishProfile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Properties\PublishProfiles\SelfContainedWin64Debug.pubxml</PublishProfile>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
