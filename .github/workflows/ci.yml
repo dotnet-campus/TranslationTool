@@ -98,4 +98,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: MSIX Package
-        path: TranslationTool.Package\AppPackages
+        path: Code\TranslationTool.Package\AppPackages
