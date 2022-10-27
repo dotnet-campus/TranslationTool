@@ -14,10 +14,10 @@ namespace Translation.WebApi.YouDaoApi
     /// </summary>
     public class YouDaoOfficialApiService : WebRequestBase
     {
-        const string _appKey = "75766d8fc97f34a3";
+        const string _appKey = "17244a88182153cf";
         const string _from = "auto";
         const string _to = "zhs";
-        const string _appSecret = "rFkTqsDws1bCoETcxSL7afG33emwJdr5";
+        const string _appSecret = "on7de03hB5JhqpJqXCNGkaomq4PukQ62";
 
         public static async Task<YouDaoTranslationResponse> GetWordsAsync(string queryText)
         {
